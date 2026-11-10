@@ -1,0 +1,11 @@
+{
+  "timeZone": "Asia/Dubai",
+  "dependencies": {
+    "enabledAdvancedServices": [
+      { "userSymbol": "Calendar", "serviceId": "calendar", "version": "v3" }
+    ]
+  },
+  "webapp": { "executeAs": "USER_DEPLOYING", "access": "ANYONE_ANONYMOUS" },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}
