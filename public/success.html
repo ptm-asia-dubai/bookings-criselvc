@@ -1,55 +1,63 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inquiry received · CriselVC</title>
-  <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root{--console:#0B0D0E;--hairline:#1C1F22;--amber:#FFA51F;--green:#3DDC84;--bone:#EDE9E3;--dim:#7D8288}
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--console);color:var(--bone);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.55}
-    .wrap{max-width:760px;margin:0 auto;padding:40px 20px 80px}
-    header{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--hairline)}
-    .mark{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:.02em}
-    .status{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.08em}
-    .node{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(61,220,132,.15)}
-    h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(30px,5vw,44px);line-height:1.1;margin:48px 0 12px}
-    p{color:var(--dim);max-width:560px}
-    ol{list-style:none;padding:0;margin:40px 0;border:1px solid var(--hairline)}
-    ol li{padding:16px;border-bottom:1px solid var(--hairline);display:flex;gap:16px}
-    ol li:last-child{border-bottom:0}
-    ol b{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:var(--amber);min-width:24px;padding-top:2px}
-    ol span{color:var(--bone)}
-    a.back{display:inline-block;border:1px solid var(--hairline);color:var(--bone);text-decoration:none;padding:12px 22px;font-family:'Space Grotesk',sans-serif;font-weight:500}
-    a.back:hover{border-color:var(--amber)}
-    footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--hairline);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim)}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inquiry received · CriselVC</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Oswald:wght@500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .done{min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+  .done .nav{position:static;border-bottom:1px solid var(--line-soft)}
+  .done__main{flex:1;display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,7vw,120px);align-items:center;padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(64px,9vw,120px)}
+  .done__title{font-family:var(--f-ui);font-weight:500;font-size:clamp(44px,5.6vw,84px);line-height:1.02;letter-spacing:-.025em;color:var(--white);margin:0 0 32px}
+  .done__title .soft{color:var(--chrome)}
+  .done .lead{max-width:30ch;margin-bottom:40px}
+  .steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  .steps li{display:grid;grid-template-columns:52px 1fr;padding:20px 0;border-bottom:1px solid var(--line-soft);color:var(--bone);font-size:16px}
+  .steps b{font-family:var(--f-mono);font-weight:400;font-size:12px;color:var(--red);padding-top:3px}
+  .done__after{color:var(--chrome);font-size:15px;margin:28px 0 0}
+  @media (max-width:960px){.done__main{grid-template-columns:1fr}}
+</style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="mark">CriselVC</div>
-      <div class="status"><span class="node" aria-hidden="true"></span>Inquiry received</div>
-    </header>
-
-    <h1>Thank you. Your inquiry is in.</h1>
-    <p>The management team has your details and will review them. Here is what happens next.</p>
-
-    <ol>
+<body class="done">
+<header class="nav is-solid">
+  <div class="nav__in">
+    <a class="brand" href="/" aria-label="CriselVC — home"><img src="assets/img/criselVC-lockup-480.png" srcset="assets/img/criselVC-lockup-960.png 2x" width="228" height="48" alt="criselVC"></a>
+    <span class="meta" style="display:inline-flex;align-items:center;gap:10px"><span style="width:7px;height:7px;border-radius:50%;background:var(--red)"></span>Inquiry received</span>
+  </div>
+</header>
+<main class="wrap done__main">
+  <div>
+    <p class="kicker">Bookings &amp; Enquiries</p>
+    <h1 class="done__title">Thank you.<br><span class="soft">Your inquiry is in.</span></h1>
+    <p class="lead">The management team has your details and will review them. Here is what happens next.</p>
+    <a class="btn" href="/#book"><span class="arr" aria-hidden="true">←</span> Back to bookings</a>
+  </div>
+  <div>
+    <ol class="steps">
       <li><b>01</b><span>We check fit and availability for your date.</span></li>
       <li><b>02</b><span>You receive a reply by email, usually within two working days.</span></li>
-      <li><b>03</b><span>If it's a match, we send terms in writing.</span></li>
+      <li><b>03</b><span>If it’s a match, we send terms in writing.</span></li>
       <li><b>04</b><span>The date is held once terms are agreed and the deposit is received.</span></li>
     </ol>
-
-    <p>If anything changes before then, reply to our email and we'll update the inquiry.</p>
-    <p style="margin-top:32px"><a class="back" href="/">Back to bookings</a></p>
-
-    <footer>CriselVC · Managed by Patty Tiu Management</footer>
+    <p class="done__after">If anything changes before then, reply to our email and we’ll update the inquiry.</p>
   </div>
+</main>
+<footer class="foot" style="padding-top:0;border-top:0">
+  <div class="wrap">
+    <div class="foot__base" style="margin-top:0">
+      <span>CriselVC — Sound Without Borders</span>
+      <span>Managed by Patty Tiu Management · Times in Dubai (GST, UTC+4)</span>
+      <span class="preview-note">Design preview</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
