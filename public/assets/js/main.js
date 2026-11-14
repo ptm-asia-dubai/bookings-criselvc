@@ -185,3 +185,17 @@
     }
   });
 })();
+
+/* ---------- Instagram reel embeds: size each official iframe to the height it reports ---------- */
+(() => {
+  const frames = [...document.querySelectorAll('.reel iframe')];
+  if (!frames.length) return;
+  window.addEventListener('message', (e) => {
+    if (e.origin !== 'https://www.instagram.com') return;
+    let d = e.data;
+    if (typeof d === 'string') { try { d = JSON.parse(d); } catch { return; } }
+    if (!d || d.type !== 'MEASURE' || !d.details || !d.details.height) return;
+    const f = frames.find((fr) => fr.contentWindow === e.source);
+    if (f) f.style.height = Math.ceil(d.details.height) + 'px';
+  });
+})();
