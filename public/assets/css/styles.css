@@ -194,18 +194,6 @@ table.events{width:100%;border-collapse:collapse;border-top:1px solid var(--line
 .g img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s var(--ease)}
 .g:hover img,.g:focus-visible img{transform:scale(1.025)}
 .g:focus-visible{outline:1px solid var(--red);outline-offset:3px}
-.g--a{grid-column:1/span 6;aspect-ratio:auto;height:clamp(300px,36vw,560px)}
-.g--b{grid-column:7/span 3;height:clamp(300px,36vw,560px)}
-.g--c{grid-column:10/span 3;height:clamp(300px,36vw,560px)}
-.g--d{grid-column:1/span 4;height:clamp(340px,42vw,640px)}
-.g--e{grid-column:5/span 5;height:clamp(340px,42vw,640px)}
-.g--f{grid-column:10/span 3;height:clamp(340px,42vw,640px)}
-.g--a img{object-position:48% 45%}
-.g--b img{object-position:50% 30%}
-.g--c img{object-position:42% 30%}
-.g--d img{object-position:50% 30%}
-.g--e img{object-position:50% 30%}
-.g--f img{object-position:50% 25%}
 .lightbox{border:0;padding:0;margin:0;max-width:none;max-height:none;width:100vw;height:100vh;background:rgba(0,0,0,.96);color:var(--bone)}
 .lightbox::backdrop{background:rgba(0,0,0,.9)}
 .lightbox[open]{display:flex;align-items:center;justify-content:center}
@@ -359,10 +347,6 @@ button[type=submit]:hover .arr{transform:translateX(4px)}
   .statement__copy{padding:72px var(--gutter)}
   .creds{grid-template-columns:1fr}
   .creds article,.creds article+article{padding:28px 0;border-left:0;border-bottom:1px solid var(--line-soft)}
-  .gallery__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .g--a{grid-column:1/-1;height:auto;aspect-ratio:3/2}
-  .g--b,.g--c,.g--d,.g--e,.g--f{grid-column:auto;height:auto;aspect-ratio:3/4}
-  .g--e{grid-column:1/-1;aspect-ratio:1/1}
 }
 @media (max-width:640px){
   body{font-size:16px}
@@ -409,5 +393,81 @@ legend+*{clear:both}
   ol.process li:nth-child(even){padding-left:14px}
   .book__grid{padding-top:48px}
 }
-@media (max-width:960px){.gallery__grid{grid-auto-flow:dense}}
 @media (max-width:640px){.events td:last-child{color:var(--bone)}}
+
+/* ---------- Stages · venue logo wall + country flags (replaces events table & country chips) ---------- */
+.logo-wall{margin-top:clamp(80px,10vw,128px)}
+.venues{--cell:84px;list-style:none;margin:0;padding:clamp(36px,4vw,56px) 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(36px,4vw,56px) clamp(28px,3.5vw,64px);border-top:1px solid var(--line);border-bottom:1px solid var(--line-soft)}
+.venues li{height:var(--cell);display:flex;align-items:center;justify-content:center;min-width:0}
+.venues img{display:block;width:auto;height:auto;max-width:min(100%,var(--mw,184px));max-height:calc(var(--cell) * var(--s,1));object-fit:contain}
+/* optical balancing: tall lockups get a little more height, dense/heavy marks a little less width */
+.venues .v-the-h-dubai,.venues .v-toshi{--s:1.3}
+.venues .v-nakheel{--mw:150px}
+.venues .v-kimpo{--mw:160px}
+.venues .v-me-film-comic-con{--mw:164px}
+.venues .v-mmi{--s:.9}
+.venues .v-jbr{--s:.82}
+.venues .v-mamazonia{--mw:200px}
+.flags{display:grid;grid-template-columns:repeat(6,max-content);align-items:center;gap:18px 22px;list-style:none;margin:0;padding:8px 0 0}
+.flags li{display:block;line-height:0}
+.flags img{display:block;height:26px;width:auto;border:1px solid rgba(255,255,255,.18);border-radius:1px}
+@media (max-width:960px){
+  .venues{--cell:72px}
+  .venues img{max-width:min(100%,140px)}
+}
+@media (max-width:640px){
+  .venues{grid-template-columns:repeat(2,minmax(0,1fr));--cell:64px;gap:36px 28px;padding:32px 0}
+  .venues li:last-child:nth-child(odd){grid-column:1/-1}
+  .logo-wall .table-block__head{flex-direction:column;align-items:start;gap:6px}
+  .venues img{max-width:min(100%,150px)}
+  .flags{grid-template-columns:repeat(4,max-content);gap:16px 18px}
+  .flags img{height:24px}
+}
+
+/* ---------- Gallery · Instagram reels row + eight alternating stills ---------- */
+.reels-wrap{margin-bottom:clamp(56px,7vw,96px)}
+.reels{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);align-items:stretch}
+.reel{min-width:0;position:relative;display:flex;flex-direction:column}
+.reel__frame{background:#000;border:1px solid var(--line);border-radius:2px;overflow:hidden;line-height:0}
+.reel__frame iframe{display:block;width:100%;height:634px;border:0;background:#000;color-scheme:normal}
+.reel__cap{display:flex;justify-content:space-between;gap:12px;margin:14px 0 0;padding-top:0;font-size:11px;margin-top:auto}
+.reel__frame{margin-bottom:14px}
+.reel__cap span:first-child{color:var(--red)}
+.reel__cap a{color:var(--chrome);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.reel__cap a:hover,.reel__cap a:focus-visible{color:var(--white);border-color:var(--red)}
+.stills__head{display:flex;justify-content:space-between;gap:16px;margin-bottom:18px}
+.stills__head .meta:first-child{color:var(--red)}
+.gallery__grid--6{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gallery__grid--6 .g{aspect-ratio:1/1;height:auto}
+.gallery__grid--6 .g img{object-position:50% 40%}
+@media (max-width:960px){
+  .reels-wrap{padding-right:0}
+  .reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding-right:var(--gutter);scrollbar-width:thin;scrollbar-color:var(--line) transparent;-webkit-overflow-scrolling:touch}
+  .reel{flex:0 0 min(340px,78vw);scroll-snap-align:start}
+}
+@media (max-width:640px){
+  .gallery__grid--6{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stills__head .meta:last-child{display:none}
+}
+
+/* ---------- Gallery stills · slow Ken Burns (CSS only; paused on hover/focus; off for reduced motion) ---------- */
+@keyframes kb{
+  from{transform:scale(1) translate(0,0)}
+  to{transform:scale(var(--kb-s,1.07)) translate(var(--kb-x,0),var(--kb-y,0))}
+}
+.gallery__grid--6 .g img{
+  transform-origin:var(--kb-o,50% 22%);
+  animation:kb var(--kb-d,22s) cubic-bezier(.45,.05,.55,.95) var(--kb-delay,0s) infinite var(--kb-dir,alternate) both;
+  will-change:transform;backface-visibility:hidden
+}
+/* per-tile origin, drift, pace and phase, so the wall never pulses in unison */
+.gallery__grid--6 .g:nth-child(1){--kb-o:40% 22%;--kb-x:1.2%;--kb-d:22s;--kb-delay:-3s}
+.gallery__grid--6 .g:nth-child(2){--kb-o:60% 22%;--kb-x:-1.2%;--kb-d:26s;--kb-delay:-11s;--kb-dir:alternate-reverse}
+.gallery__grid--6 .g:nth-child(3){--kb-o:50% 18%;--kb-y:-.6%;--kb-d:20s;--kb-delay:-7s}
+.gallery__grid--6 .g:nth-child(4){--kb-o:55% 25%;--kb-x:-1%;--kb-d:24s;--kb-delay:-15s;--kb-dir:alternate-reverse}
+.gallery__grid--6 .g:nth-child(5){--kb-o:45% 20%;--kb-x:1%;--kb-d:27s;--kb-delay:-5s}
+.gallery__grid--6 .g:nth-child(6){--kb-o:50% 22%;--kb-x:-1.2%;--kb-d:19s;--kb-delay:-13s;--kb-dir:alternate-reverse}
+.gallery__grid--6 .g:hover img,.gallery__grid--6 .g:focus-visible img,.gallery__grid--6 .g:active img{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){
+  .gallery__grid--6 .g img{animation:none;transform:none;will-change:auto}
+}
