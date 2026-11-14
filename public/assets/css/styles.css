@@ -471,3 +471,7 @@ legend+*{clear:both}
 @media (prefers-reduced-motion:reduce){
   .gallery__grid--6 .g img{animation:none;transform:none;will-change:auto}
 }
+
+/* ---------- Footer · builder credit ---------- */
+.foot__credit{display:inline-flex;align-items:center;gap:8px;color:var(--chrome)}
+.foot__credit img{width:24px;height:24px;display:block;opacity:.85}
