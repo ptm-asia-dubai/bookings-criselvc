@@ -6,6 +6,8 @@
 <title>CriselVC — Sound without borders · Bookings</title>
 <meta name="description" content="CriselVC — UAE electronic artist across tech house, Latin house, Afro house and progressive. Booking inquiries for clubs, resort and beach stages, festival side-stages and brand activations.">
 <meta name="theme-color" content="#000000">
+<!-- Sticky mix player: paste a public SoundCloud or Mixcloud set URL here to switch it on. Empty = hidden. -->
+<meta name="criselvc-mix" content="https://www.mixcloud.com/crisel-capitulo/afro-house-2025-b/">
 <meta property="og:title" content="CriselVC — Sound without borders">
 <meta property="og:description" content="Tech House · Latin House · Afro House · Progressive. Booking inquiries.">
 <meta property="og:image" content="assets/img/hero-mixer.jpg">
@@ -18,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=Oswald:wght@500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__cvc)document.documentElement.classList.remove('js')},4000)</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -28,12 +30,13 @@
     <a class="brand" href="#top" aria-label="CriselVC — back to top">
       <img src="assets/img/criselVC-lockup-480.png" srcset="assets/img/criselVC-lockup-480.png 1x, assets/img/criselVC-lockup-960.png 2x" width="228" height="48" alt="criselVC">
     </a>
+    <span class="nav__credit" title="Built by PT Dev"><img src="assets/img/pt-dev-mark-32.png" srcset="assets/img/pt-dev-mark-16.png 16w, assets/img/pt-dev-mark-32.png 32w" sizes="20px" width="20" height="20" alt="Built by PT Dev"></span>
     <nav aria-label="Primary">
       <ul class="nav__links">
         <li><a href="#artist">Artist</a></li>
         <li><a href="#sound">Sound</a></li>
         <li><a href="#stages">Stages</a></li>
-        <li><a class="btn btn--sm btn--red" href="#book">Book</a></li>
+        <li><a class="btn btn--sm btn--red" href="#book" data-magnet>Book</a></li>
       </ul>
     </nav>
     <button class="nav__toggle" id="menu-open" aria-expanded="false" aria-controls="menu">Menu</button>
@@ -59,17 +62,17 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="top" aria-label="CriselVC — Sound without borders">
   <div class="hero__copy">
-    <h1 class="hero__title" aria-label="Sound without borders">
+    <h1 class="hero__title" aria-label="Sound without borders" data-parallax="-0.12">
       <span>Sound</span><span>Without</span><span class="red">Borders</span>
     </h1>
-    <p class="hero__disc">Tech House · Latin House · Afro House · Progressive</p>
+    <p class="hero__disc" data-type>Tech House · Latin House · Afro House · Progressive</p>
     <p class="hero__prev">Formerly DJ Crisel / DJL</p>
     <div class="hero__actions">
-      <a class="btn" href="#book">Book a date <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn" href="#book" data-magnet>Book a date <span class="arr" aria-hidden="true">→</span></a>
       <a class="hero__more" href="#artist">The artist</a>
     </div>
   </div>
-  <figure class="hero__media">
+  <figure class="hero__media" data-parallax="0.18">
     <picture>
       <source type="image/webp" srcset="assets/img/hero-mixer-800.webp 698w, assets/img/hero-mixer.webp 1312w" sizes="(max-width:960px) 100vw, 56vw">
       <img src="assets/img/hero-mixer.jpg" srcset="assets/img/hero-mixer-800.jpg 698w, assets/img/hero-mixer.jpg 1312w" sizes="(max-width:960px) 100vw, 56vw" width="1312" height="1504" fetchpriority="high"
@@ -239,7 +242,7 @@
     </div>
 
     <div class="logo-wall rv">
-      <div class="table-block__head"><h3 id="venues-h">Selected stages &amp; events</h3><span class="meta">Residency · Events</span></div>
+      <div class="table-block__head"><h3 id="venues-h">Selected stages &amp; events</h3><span class="meta">Residency · Events <button type="button" class="marquee-toggle" id="marquee-toggle" aria-pressed="false" hidden>Pause</button></span></div>
       <ul class="venues" aria-labelledby="venues-h">
         <li class="v-mamazonia"><img src="assets/img/venues/mamazonia-white.png" width="552" height="131" alt="MamaZonia" loading="lazy" decoding="async"></li>
         <li class="v-bussola"><img src="assets/img/venues/bussola.png" width="321" height="87" alt="Bussola" loading="lazy" decoding="async"></li>
@@ -261,7 +264,7 @@
     </div>
 
     <div class="countries rv">
-      <div><span class="big">Twelve</span><span class="meta">countries · Europe · GCC · Asia</span></div>
+      <div><span class="big" data-count="12" aria-label="Twelve"><span aria-hidden="true">Twelve</span></span><span class="meta">countries · Europe · GCC · Asia</span></div>
       <ul class="flags" aria-label="Countries played">
         <li><img src="assets/img/flags/uae.svg" width="52" height="26" alt="United Arab Emirates" title="United Arab Emirates" loading="lazy" decoding="async"></li>
         <li><img src="assets/img/flags/qatar.svg" width="66" height="26" alt="Qatar" title="Qatar" loading="lazy" decoding="async"></li>
@@ -308,20 +311,29 @@
     <span class="meta rv">Reels · Stills</span>
   </div>
   <div class="wrap reels-wrap rv">
-    <ul class="reels" aria-label="CriselVC Instagram reels">
-      <li class="reel">
-        <div class="reel__frame"><iframe src="https://www.instagram.com/reel/DHGS_RRBu75/embed/" title="CriselVC Instagram reel 1 of 3" width="400" height="634" loading="lazy" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <ul class="reels" aria-label="CriselVC Instagram reels" tabindex="0">
+      <li class="reel" id="reel-1">
+        <div class="reel__frame"><div class="reel__poster" aria-hidden="true"><span class="reel__play"></span><span class="reel__num">Reel 01</span><span class="reel__load">Loading reel…</span></div><iframe data-src="https://www.instagram.com/reel/DHGS_RRBu75/embed/" title="CriselVC Instagram reel 1 of 3" width="400" height="634" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe><noscript><iframe src="https://www.instagram.com/reel/DHGS_RRBu75/embed/" title="CriselVC Instagram reel 1 of 3" width="400" height="634" loading="lazy" scrolling="no" style="position:static;opacity:1"></iframe></noscript></div>
         <p class="reel__cap meta"><span>Reel 01</span><a href="https://www.instagram.com/reel/DHGS_RRBu75/" target="_blank" rel="noopener">Watch on Instagram <span aria-hidden="true">↗</span><span class="sr-only"> (reel 1, opens in a new tab)</span></a></p>
       </li>
-      <li class="reel">
-        <div class="reel__frame"><iframe src="https://www.instagram.com/reel/De5TBK2NMRd/embed/" title="CriselVC Instagram reel 2 of 3" width="400" height="634" loading="lazy" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <li class="reel" id="reel-2">
+        <div class="reel__frame"><div class="reel__poster" aria-hidden="true"><span class="reel__play"></span><span class="reel__num">Reel 02</span><span class="reel__load">Loading reel…</span></div><iframe data-src="https://www.instagram.com/reel/De5TBK2NMRd/embed/" title="CriselVC Instagram reel 2 of 3" width="400" height="634" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe><noscript><iframe src="https://www.instagram.com/reel/De5TBK2NMRd/embed/" title="CriselVC Instagram reel 2 of 3" width="400" height="634" loading="lazy" scrolling="no" style="position:static;opacity:1"></iframe></noscript></div>
         <p class="reel__cap meta"><span>Reel 02</span><a href="https://www.instagram.com/reel/De5TBK2NMRd/" target="_blank" rel="noopener">Watch on Instagram <span aria-hidden="true">↗</span><span class="sr-only"> (reel 2, opens in a new tab)</span></a></p>
       </li>
-      <li class="reel">
-        <div class="reel__frame"><iframe src="https://www.instagram.com/reel/DetqL0vNf8I/embed/" title="CriselVC Instagram reel 3 of 3" width="400" height="634" loading="lazy" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <li class="reel" id="reel-3">
+        <div class="reel__frame"><div class="reel__poster" aria-hidden="true"><span class="reel__play"></span><span class="reel__num">Reel 03</span><span class="reel__load">Loading reel…</span></div><iframe data-src="https://www.instagram.com/reel/DetqL0vNf8I/embed/" title="CriselVC Instagram reel 3 of 3" width="400" height="634" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe><noscript><iframe src="https://www.instagram.com/reel/DetqL0vNf8I/embed/" title="CriselVC Instagram reel 3 of 3" width="400" height="634" loading="lazy" scrolling="no" style="position:static;opacity:1"></iframe></noscript></div>
         <p class="reel__cap meta"><span>Reel 03</span><a href="https://www.instagram.com/reel/DetqL0vNf8I/" target="_blank" rel="noopener">Watch on Instagram <span aria-hidden="true">↗</span><span class="sr-only"> (reel 3, opens in a new tab)</span></a></p>
       </li>
     </ul>
+    <div class="reels__ctrl" hidden>
+      <button type="button" class="reels__arrow" data-dir="-1" aria-label="Previous reel">←</button>
+      <div class="reels__dots" role="group" aria-label="Choose a reel">
+        <button type="button" aria-label="Reel 1" aria-controls="reel-1"></button>
+        <button type="button" aria-label="Reel 2" aria-controls="reel-2"></button>
+        <button type="button" aria-label="Reel 3" aria-controls="reel-3"></button>
+      </div>
+      <button type="button" class="reels__arrow" data-dir="1" aria-label="Next reel">→</button>
+    </div>
   </div>
   <div class="wrap stills__head rv"><span class="meta">Stills</span><span class="meta">Select an image to enlarge</span></div>
   <div class="gallery__grid gallery__grid--6">
@@ -339,7 +351,7 @@
   <button class="lb-btn lb-close" id="lb-close" type="button">Close</button>
   <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Previous image">←</button>
   <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Next image">→</button>
-  <span class="meta lb-count" id="lb-count"></span>
+  <span class="meta lb-count" id="lb-count" aria-live="polite"></span>
 </dialog>
 
 <!-- ============ 05 BOOK ============ -->
@@ -371,6 +383,17 @@
         <input type="hidden" name="form-name" value="criselvc-inquiry">
         <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
+        <div class="steps-bar" aria-hidden="true" hidden>
+          <ol class="steps-bar__list">
+            <li data-step="1"><b></b>Event</li>
+            <li data-step="2"><b></b>Date</li>
+            <li data-step="3"><b></b>Details</li>
+          </ol>
+          <div class="steps-bar__track"><span class="steps-bar__fill" id="steps-fill"></span></div>
+        </div>
+        <p class="sr-only" id="step-status" aria-live="polite"></p>
+
+        <div class="step" data-step="1" role="group" aria-label="Step 1 of 3: Event">
         <fieldset>
           <legend><b>01</b>Engagement</legend>
           <div class="lanes" role="radiogroup" aria-label="Engagement type">
@@ -381,41 +404,9 @@
           <div class="err" id="err-lane"></div>
         </fieldset>
 
-        <fieldset>
-          <legend><b>02</b>Date</legend>
-          <div class="date-grid">
-            <div class="cal" id="cal">
-              <div class="cal-head">
-                <button type="button" class="cal-nav" id="cal-prev" aria-label="Previous month">‹</button>
-                <strong id="cal-title" aria-live="polite"></strong>
-                <button type="button" class="cal-nav" id="cal-next" aria-label="Next month">›</button>
-              </div>
-              <div class="cal-grid" id="cal-grid"></div>
-              <div class="cal-note" id="cal-note">Checking availability…</div>
-            </div>
-            <div class="date-side">
-              <span class="label">Selected date</span>
-              <div class="picked empty" id="picked" aria-live="polite">No date chosen yet</div>
-              <input type="hidden" name="event_date" id="event_date">
-              <div class="err" id="err-date"></div>
-              <div class="field"><label for="city">City</label><input type="text" id="city" name="city" required autocomplete="address-level2"></div>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend><b>03</b>Contact</legend>
-          <div class="fgrid">
-            <div class="field"><label for="name">Full name</label><input type="text" id="name" name="name" required autocomplete="name"></div>
-            <div class="field"><label for="company">Company <span class="opt">optional</span></label><input type="text" id="company" name="company" autocomplete="organization"></div>
-            <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required autocomplete="email"></div>
-            <div class="field"><label for="phone">Phone / WhatsApp</label><input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+971 …"></div>
-          </div>
-        </fieldset>
-
         <!-- Artist lane -->
         <fieldset class="lane-fields" data-lane="Artist" hidden>
-          <legend><b>04</b>Artist details</legend>
+          <legend><b>02</b>Artist details</legend>
           <div class="fgrid">
             <div class="field"><label for="artist_event_type">Event type</label>
               <select id="artist_event_type" name="artist_event_type" data-required>
@@ -441,7 +432,7 @@
 
         <!-- Creative lane -->
         <fieldset class="lane-fields" data-lane="Creative" hidden>
-          <legend><b>04</b>Creative details</legend>
+          <legend><b>02</b>Creative details</legend>
           <div class="fgrid">
             <div class="field"><label for="creative_service">Service</label>
               <select id="creative_service" name="creative_service" data-required>
@@ -462,7 +453,7 @@
 
         <!-- Trader lane -->
         <fieldset class="lane-fields" data-lane="Trader" hidden>
-          <legend><b>04</b>Trader details</legend>
+          <legend><b>02</b>Trader details</legend>
           <div class="fgrid">
             <div class="field"><label for="trader_format">Format</label>
               <select id="trader_format" name="trader_format" data-required>
@@ -487,6 +478,55 @@
           </div>
         </fieldset>
 
+        <aside class="hint" id="quote-hint" aria-live="polite" hidden>
+          <p class="hint__k meta">Set guide</p>
+          <p class="hint__len" id="hint-len"></p>
+          <p class="hint__tip" id="hint-tip"></p>
+        </aside>
+        <div class="step-nav">
+          <button type="button" class="step-btn" data-go="2" data-magnet>Next · Date <span class="arr" aria-hidden="true">→</span></button>
+        </div>
+        </div>
+
+        <div class="step" data-step="2" role="group" aria-label="Step 2 of 3: Date">
+        <fieldset>
+          <legend><b>03</b>Date</legend>
+          <div class="date-grid">
+            <div class="cal" id="cal">
+              <div class="cal-head">
+                <button type="button" class="cal-nav" id="cal-prev" aria-label="Previous month">‹</button>
+                <strong id="cal-title" aria-live="polite"></strong>
+                <button type="button" class="cal-nav" id="cal-next" aria-label="Next month">›</button>
+              </div>
+              <div class="cal-grid" id="cal-grid"></div>
+              <div class="cal-note" id="cal-note">Checking availability…</div>
+            </div>
+            <div class="date-side">
+              <span class="label">Selected date</span>
+              <div class="picked empty" id="picked" aria-live="polite">No date chosen yet</div>
+              <input type="hidden" name="event_date" id="event_date">
+              <div class="err" id="err-date"></div>
+              <div class="field"><label for="city">City</label><input type="text" id="city" name="city" required autocomplete="address-level2"></div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="step-nav">
+          <button type="button" class="step-btn step-btn--back" data-go="1">← Back</button>
+          <button type="button" class="step-btn" data-go="3" data-magnet>Next · Details <span class="arr" aria-hidden="true">→</span></button>
+        </div>
+        </div>
+
+        <div class="step" data-step="3" role="group" aria-label="Step 3 of 3: Details">
+        <fieldset>
+          <legend><b>04</b>Contact</legend>
+          <div class="fgrid">
+            <div class="field"><label for="name">Full name</label><input type="text" id="name" name="name" required autocomplete="name"></div>
+            <div class="field"><label for="company">Company <span class="opt">optional</span></label><input type="text" id="company" name="company" autocomplete="organization"></div>
+            <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required autocomplete="email"></div>
+            <div class="field"><label for="phone">Phone / WhatsApp</label><input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+971 …"></div>
+          </div>
+        </fieldset>
+
         <fieldset>
           <legend><b>05</b>Anything else</legend>
           <div class="field"><label for="notes">Notes <span class="opt">optional</span></label>
@@ -497,12 +537,23 @@
           </div>
           <div class="err" id="err-form" role="alert"></div>
           <div class="submit-row">
-            <button type="submit" id="submit">Send inquiry <span class="arr" aria-hidden="true">→</span></button>
+            <button type="button" class="step-btn step-btn--back" data-go="2">← Back</button>
+            <button type="submit" id="submit" data-magnet>Send inquiry <span class="arr" aria-hidden="true">→</span></button>
             <span class="meta">Reviewed by management · Reply by email</span>
           </div>
           <p class="fine">Sending an inquiry does not reserve the date. A date is held only once terms are agreed and the deposit is received.</p>
         </fieldset>
+        </div>
       </form>
+      <div class="sent" id="sent" tabindex="-1" hidden>
+        <canvas class="sent__confetti" id="confetti" aria-hidden="true"></canvas>
+        <p class="kicker">Inquiry received</p>
+        <h3 class="sent__title">Thank you<span class="red">.</span></h3>
+        <p class="sent__lead">Your inquiry is with the management team. We review every request for fit and availability and reply by email.</p>
+        <p class="sent__date meta" id="sent-date"></p>
+        <p class="fine">Sending an inquiry does not reserve the date. A date is held only once terms are agreed and the deposit is received.</p>
+        <a class="btn" href="#top">Back to top <span class="arr" aria-hidden="true">↑</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -524,10 +575,20 @@
     <div class="foot__base">
       <span>CriselVC — Sound Without Borders</span>
       <span>Managed by Patty Tiu Management · Times in Dubai (GST, UTC+4)</span>
-      <span class="foot__credit"><img src="assets/img/pt-dev-watermark-white.png" alt="PT Dev" width="32" height="32" loading="lazy">Built by PT Dev</span>
+      <span class="foot__credit"><img src="assets/img/pt-dev-mark-32.png" alt="PT Dev" width="32" height="32" loading="lazy">Built by PT Dev</span>
     </div>
   </div>
 </footer>
+
+<div class="mix" id="mix" hidden>
+  <div class="mix__bar">
+    <span class="mix__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="mix__label"><span class="meta">Now playing</span><b>CriselVC · Afro House 2025</b></span>
+    <button type="button" class="mix__play" id="mix-play" aria-expanded="false">Play the mix</button>
+    <button type="button" class="mix__close" id="mix-close" aria-label="Close the mix player">×</button>
+  </div>
+  <div class="mix__embed" id="mix-embed"></div>
+</div>
 
 <script src="assets/js/main.js" defer></script>
 </body>
